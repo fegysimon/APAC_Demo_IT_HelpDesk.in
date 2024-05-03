@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesys Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-L3Vwbw6w2n5PJ/EmV6sHAyQmZI+ViWxv9vEjsZFP27pUlwMNSdU1zhYbC9G9UqV3Pq6Etsf1FwiQg5MFE4we1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1, p {
+            margin: 0;
+        }
+
+        #addToCartButton {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        #addToCartButton:hover {
+            background-color: #45a049;
+        }
+
+        #cartInfo {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        #cartIcon {
+            font-size: 24px;
+            margin-right: 5px;
+        }
+
+        #cartItems {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .cartItem {
+            margin-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+        }
+
+        #clearCartButton {
+            margin-top: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px 12px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #clearCartButton:hover {
+            background-color: #c0392b;
+        }
+
+        @media only screen and (max-width: 600px) {
+            main {
+                padding: 15px;
+            }
+
+            #cartInfo {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Genesys Demo</h1>
+</header>
+
+<main>
+    <!-- Your product details and other content -->
+    <h1>Test Product</h1>
+    <p>Price: $999</p>
+
+    <!-- Add to Cart button -->
+    <button id="addToCartButton">Add to Cart</button>
+    <a href="page2.html">Page 2</a>
+    <a href="page3.html">Page 3</a>    
+    <a href="page4.html">Page 4</a>    
+    
+    <!-- Cart information -->
+    <div id="cartInfo">
+        <i id="cartIcon" class="fas fa-shopping-cart"></i>
+        <h2>Shopping Cart</h2>
+        <ul id="cartItems">
+            <!-- Cart items will be displayed here -->
+        </ul>
+        <!-- Clear Cart button -->
+        <button id="clearCartButton">Clear Cart</button>
+    </div>
+    <div id="genesys-support-center"></div>
+</main>
+
+<script>
+    // Simulate adding an item to the cart
+    document.getElementById('addToCartButton').addEventListener('click', function() {
+        // You can customize this part with your actual product details
+        var productName = 'Test Product';
+        var productPrice = 999;
+
+        // Create a new cart item
+        var cartItem = document.createElement('li');
+        cartItem.textContent = productName + ' - $' + productPrice.toFixed(2);
+        cartItem.className = 'cartItem';
+
+        // Add the item to the cart
+        document.getElementById('cartItems').appendChild(cartItem);
+    });
+
+    // Clear the cart
+    document.getElementById('clearCartButton').addEventListener('click', function() {
+        var cartItems = document.getElementById('cartItems');
+        while (cartItems.firstChild) {
+            cartItems.removeChild(cartItems.firstChild);
+        }
+    });
+         
+ (function (g, e, n, es, ys) {
+    g['_genesysJs'] = e;
+    g[e] = g[e] || function () {
+      (g[e].q = g[e].q || []).push(arguments)
+    };
+    g[e].t = 1 * new Date();
+    g[e].c = es;
+    ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+  })(window, 'Genesys', 'https://apps.aps1.pure.cloud/genesys-bootstrap/genesys.min.js', {
+    environment: 'prod-aps1',
+    deploymentId: 'a8423739-c44e-4082-9dd1-1677481a3959'
+  });
+</script>
+
+</body>
+</html>
