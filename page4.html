@@ -1,86 +1,985 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Outpatient Section</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
+  <meta charset="UTF-8" />
+  <title>SecureLife Insurance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Affordable and reliable insurance plans for you and your family." />
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-</div>
-    <div id="genesys-support-center"></div
-        h1, p {
-            margin: 50;
-        }
+    body {
+      color: #0f172a;
+      background-color: #f8fafc;
+      line-height: 1.6;
+    }
 
-        #backToFirstPageButton {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 15px;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        #backToFirstPageButton:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    /* Layout */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      color: #e5e7eb;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 2px solid #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      opacity: 0.85;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #38bdf8;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid #38bdf8;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background-color: #0f172a;
+      color: #e5e7eb;
+    }
+
+    .nav-cta:hover {
+      background-color: #38bdf8;
+      color: #0f172a;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: #e0f2fe;
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #0369a1;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      color: #4b5563;
+      font-size: 0.98rem;
+      max-width: 30rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.8rem;
+      color: #0369a1;
+    }
+
+    .hero-badges span {
+      background-color: #dbeafe;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      border: none;
+      color: white;
+      padding: 0.75rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-radius: 999px;
+      border: 1px solid #94a3b8;
+      padding: 0.75rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: #0f172a;
+    }
+
+    .btn-outline:hover {
+      border-color: #0f172a;
+    }
+
+    .hero-note {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 1.25rem;
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.15);
+      padding: 1.5rem 1.6rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .hero-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-card-row strong {
+      font-size: 1rem;
+    }
+
+    .hero-card-row small {
+      color: #6b7280;
+    }
+
+    .hero-card-divider {
+      height: 1px;
+      background-color: #e5e7eb;
+      margin: 0.8rem 0;
+    }
+
+    .hero-card-tagline {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-pill {
+      display: inline-flex;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background-color: #ecfdf3;
+      color: #15803d;
+      font-size: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-footnote {
+      font-size: 0.7rem;
+      color: #9ca3af;
+      margin-top: 0.6rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 3.5rem 0 3rem;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    section p.section-subtitle {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.2rem 1.1rem;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .feature-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 0.9rem;
+      background-color: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .feature-text {
+      font-size: 0.87rem;
+      color: #6b7280;
+    }
+
+    /* Plans */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .plan-card {
+      background: white;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.4rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .plan-card.highlight {
+      border-color: #0ea5e9;
+      box-shadow: 0 18px 45px rgba(56, 189, 248, 0.25);
+      position: relative;
+    }
+
+    .plan-popular {
+      position: absolute;
+      top: 0.9rem;
+      right: 1rem;
+      background-color: #0ea5e9;
+      color: #e0f2fe;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .plan-name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .plan-desc {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 0.9rem;
+    }
+
+    .plan-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.2rem;
+    }
+
+    .plan-price span {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #6b7280;
+      margin-left: 0.15rem;
+    }
+
+    .plan-list {
+      list-style: none;
+      margin: 0.8rem 0 1.1rem;
+      padding: 0;
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+
+    .plan-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .plan-list li::before {
+      content: "✓";
+      margin-right: 0.45rem;
+      color: #16a34a;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .plan-cta {
+      width: 100%;
+      margin-top: 0.4rem;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      border: 1px solid #0ea5e9;
+      background: #0ea5e91a;
+      cursor: pointer;
+      font-size: 0.88rem;
+    }
+
+    .plan-cta:hover {
+      background-color: #0ea5e9;
+      color: white;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid #e5e7eb;
+      font-size: 0.88rem;
+      color: #4b5563;
+    }
+
+    .testimonial-text {
+      margin-bottom: 0.9rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: #0f172a;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.6fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .contact-info p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info strong {
+      color: #0f172a;
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      background-color: #ecfdf3;
+      color: #166534;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      margin-top: 0.7rem;
+    }
+
+    form {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 0.9rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.9rem;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: #4b5563;
+      margin-bottom: 0.2rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border-radius: 0.6rem;
+      border: 1px solid #d1d5db;
+      padding: 0.55rem 0.6rem;
+      font-size: 0.86rem;
+      outline: none;
+      background-color: #f9fafb;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #0ea5e9;
+      background-color: white;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.72rem;
+      color: #9ca3af;
+      margin-bottom: 0.7rem;
+    }
+
+    .form-submit {
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .form-submit:hover {
+      opacity: 0.95;
+    }
+
+    .form-success {
+      font-size: 0.78rem;
+      color: #16a34a;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.5rem 0 2rem;
+      font-size: 0.78rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 1.5rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.1rem;
+    }
+
+    .footer-links a:hover {
+      color: #0f172a;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .features-grid,
+      .plans-grid,
+      .testimonials-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 1.8rem;
+      }
+
+      .section {
+        padding: 2.5rem 0 2rem;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="logo">
+          <div class="logo-mark">SL</div>
+          <span>SecureLife</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#features">Why Us</a>
+          <a href="#plans">Plans</a>
+          <a href="#testimonials">Stories</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-cta" onclick="scrollToSection('contact')">
+          Get a Quote
+        </button>
+      </div>
+    </div>
+  </header>
 
-<header>
-    <h1>Outpatient Section</h1>
-</header>
+  <!-- Hero -->
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-tag">
+            <span>✓ Trusted by 10,000+ families</span>
+          </div>
+          <h1 class="hero-title">
+            Insurance that actually<br />puts you first.
+          </h1>
+          <p class="hero-subtitle">
+            Protect what matters most with simple, transparent insurance for your life, health, home and car — all in one place.
+          </p>
 
-<main>
-    <!-- Your content for the second page goes here -->
+          <div class="hero-badges">
+            <span>No hidden fees</span>
+            <span>24×7 claim support</span>
+            <span>Paperless onboarding</span>
+          </div>
 
-    <!-- Back to First Page Button -->
-    <button id="backToFirstPageButton">Back to First Page</button>
-</main>
- 
-<script>
-  (function (g, e, n, es, ys) {
-    g['_genesysJs'] = e;
-    g[e] = g[e] || function () {
-      (g[e].q = g[e].q || []).push(arguments)
-    };
-    g[e].t = 1 * new Date();
-    g[e].c = es;
-    ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-  })(window, 'Genesys', 'https://apps.aps1.pure.cloud/genesys-bootstrap/genesys.min.js', {
-    environment: 'prod-aps1',
-    deploymentId: '4db237b8-a4bd-4901-bc57-951eb279d39d'
-  });
-        
-    // Back to First Page Button Event Listener
-    document.getElementById('backToFirstPageButton').addEventListener('click', function() {
-        // Use the browser's history object to go back
-        window.history.back();
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="scrollToSection('contact')">
+              Get Free Quote
+            </button>
+            <button class="btn-outline" onclick="scrollToSection('plans')">
+              View Plans
+            </button>
+          </div>
+          <p class="hero-note">
+            Get a customized quote in under 2 minutes. No credit card required.
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-label="Insurance summary">
+          <div class="hero-card-pill">Instant online quote</div>
+          <h3 class="hero-card-title">Your Protection Snapshot</h3>
+
+          <div class="hero-card-row">
+            <div>
+              <small>Starting premium</small>
+              <div><strong>₹899</strong> / month</div>
+            </div>
+            <div>
+              <small>Coverage up to</small>
+              <div><strong>₹1 Cr</strong></div>
+            </div>
+          </div>
+
+          <div class="hero-card-divider"></div>
+
+          <p class="hero-card-tagline">
+            Answer a few simple questions and we’ll tailor the perfect plan for your family and lifestyle.
+          </p>
+
+          <button class="btn-primary" style="width: 100%; margin-bottom: 0.5rem;" onclick="scrollToSection('contact')">
+            Start My Free Assessment
+          </button>
+          <p class="hero-card-footnote">
+            No medical tests for most applicants. You can always adjust or cancel later.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+      <div class="container">
+        <h2>Why choose SecureLife?</h2>
+        <p class="section-subtitle">
+          Insurance shouldn’t be confusing. We keep it human, transparent and fast.
+        </p>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">⏱</div>
+            <h3 class="feature-title">Fast digital onboarding</h3>
+            <p class="feature-text">
+              Get covered in minutes. Answer a few basic questions and sign your policy digitally — no branch visits required.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🧾</div>
+            <h3 class="feature-title">Clear & honest pricing</h3>
+            <p class="feature-text">
+              No hidden charges or fine print surprises. See exactly what you pay for and how it protects you.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📞</div>
+            <h3 class="feature-title">24×7 claims support</h3>
+            <p class="feature-text">
+              Our dedicated care team guides you step-by-step, so your claims are processed quickly when you need it most.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🛡</div>
+            <h3 class="feature-title">Multi-cover protection</h3>
+            <p class="feature-text">
+              Bundle life, health, home and motor insurance for better coverage and extra savings.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📉</div>
+            <h3 class="feature-title">No-claim rewards</h3>
+            <p class="feature-text">
+              Enjoy bonuses, discounted premiums and higher coverage for every claim-free year.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3 class="feature-title">Bank-grade security</h3>
+            <p class="feature-text">
+              Your data and payments are encrypted end-to-end, so your information stays safe.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans -->
+    <section id="plans" style="background-color:#e5f2ff3b;">
+      <div class="container">
+        <h2>Plans made for real life</h2>
+        <p class="section-subtitle">
+          Choose a plan that fits your stage of life. Upgrade or downgrade anytime.
+        </p>
+
+        <div class="plans-grid">
+          <!-- Basic -->
+          <article class="plan-card">
+            <div>
+              <div class="plan-name">Starter Shield</div>
+              <p class="plan-desc">Perfect for young professionals starting their financial journey.</p>
+              <div class="plan-price">
+                ₹899<span>/month</span>
+              </div>
+              <ul class="plan-list">
+                <li>Life cover up to ₹40 Lac</li>
+                <li>Accident cover up to ₹10 Lac</li>
+                <li>Hospital cash benefit</li>
+                <li>Chat & email support</li>
+              </ul>
+            </div>
+            <button class="plan-cta" onclick="scrollToSection('contact')">
+              Talk to an advisor
+            </button>
+          </article>
+
+          <!-- Popular -->
+          <article class="plan-card highlight">
+            <div class="plan-popular">Most Popular</div>
+            <div>
+              <div class="plan-name">Family Protect+</div>
+              <p class="plan-desc">Comprehensive protection for your family and dependents.</p>
+              <div class="plan-price">
+                ₹1,999<span>/month</span>
+              </div>
+              <ul class="plan-list">
+                <li>Life cover up to ₹1 Cr</li>
+                <li>Family floater health cover</li>
+                <li>Critical illness benefit</li>
+                <li>Priority claims assistance</li>
+              </ul>
+            </div>
+            <button class="plan-cta" onclick="scrollToSection('contact')">
+              Get customized quote
+            </button>
+          </article>
+
+          <!-- Premium -->
+          <article class="plan-card">
+            <div>
+              <div class="plan-name">Elite Legacy</div>
+              <p class="plan-desc">Advanced cover and wealth transfer for high-net-worth individuals.</p>
+              <div class="plan-price">
+                ₹4,999<span>/month</span>
+              </div>
+              <ul class="plan-list">
+                <li>Life cover up to ₹3 Cr</li>
+                <li>Global hospitalization cover</li>
+                <li>Tax-efficient wealth planning</li>
+                <li>Dedicated relationship manager</li>
+              </ul>
+            </div>
+            <button class="plan-cta" onclick="scrollToSection('contact')">
+              Schedule a call
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <div class="container">
+        <h2>Real stories. Real peace of mind.</h2>
+        <p class="section-subtitle">
+          Thousands trust us to protect their tomorrow. Here’s what a few of them say.
+        </p>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <p class="testimonial-text">
+              “The claim process was incredibly smooth. In a stressful time for our family, the SecureLife team handled everything with empathy and speed.”
+            </p>
+            <div>
+              <div class="testimonial-author">Ananya Sharma</div>
+              <div class="testimonial-role">Family Protect+ customer</div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-text">
+              “I signed up entirely online during my lunch break. The advisor explained the policy in simple language, no jargon or pressure.”
+            </p>
+            <div>
+              <div class="testimonial-author">Rahul Verma</div>
+              <div class="testimonial-role">Starter Shield customer</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="background-color:#f1f5f9;">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <h2>Speak with a licensed expert</h2>
+          <p class="section-subtitle" style="text-align:left; margin-bottom:0.9rem;">
+            Share a few details and our advisor will call you with personalized plan options.
+          </p>
+          <p><strong>Phone:</strong> +91-99999-00000</p>
+          <p><strong>Email:</strong> hello@securelife.insure</p>
+          <p><strong>Hours:</strong> Monday to Saturday, 9:00 AM – 7:00 PM</p>
+          <span class="contact-badge">Average response time: under 15 minutes</span>
+        </div>
+
+        <form id="quoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91-" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="coverage">Type of coverage</label>
+              <select id="coverage" name="coverage">
+                <option value="">Select an option</option>
+                <option value="life">Life Insurance</option>
+                <option value="health">Health Insurance</option>
+                <option value="home">Home Insurance</option>
+                <option value="motor">Car / Two-wheeler Insurance</option>
+                <option value="combo">Combination Plan</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Anything specific we should know?</label>
+            <textarea id="message" name="message" placeholder="E.g. family size, existing cover, budget range"></textarea>
+          </div>
+
+          <p class="form-note">
+            By submitting this form, you agree to be contacted via phone, SMS or email for policy suggestions. We respect your privacy and never spam.
+          </p>
+
+          <button type="submit" class="form-submit">
+            Request my free quote
+          </button>
+          <p id="formSuccess" class="form-success">
+            Thank you! Your request has been received. Our advisor will contact you shortly.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> SecureLife Insurance Co. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      window.scrollTo({
+        top: el.offsetTop - 70,
+        behavior: "smooth",
+      });
+    }
+
+    // Simple form handler (demo only)
+    const form = document.getElementById("quoteForm");
+    const successMsg = document.getElementById("formSuccess");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Basic front-end validation
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !phone) {
+        alert("Please fill in your name and phone number.");
+        return;
+      }
+
+      // In a real site, send the data to your backend using fetch/AJAX here.
+
+      form.reset();
+      successMsg.style.display = "block";
+
+      setTimeout(() => {
+        successMsg.style.display = "none";
+      }, 5000);
     });
-</script>
-
+  </script>
 </body>
 </html>
