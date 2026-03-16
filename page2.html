@@ -65,14 +65,31 @@
  <b>This text is bold</b>
     <button id="support Center">Back to First Page</button>
        {
+  {
+  "name": "Support Center Configuration",
+  "description": "Configuration with label filtering",
+  "languages": ["en-us"],
+  "defaultLanguage": "en-us",
   "supportCenter": {
+    "enabled": true,
+    "knowledgeBase": {
+      "id": "your-knowledge-base-id"
+    },
     "labelFilter": {
       "labels": [
         {"id": "5f29e524-6f47-4a5a-b4a7-19120fcf32cf"}
       ]
+    },
+    "customMessages": null,
+    "routerType": "Messenger",
+    "screens": {
+      "home": {
+        "enabled": true
+      }
     }
   }
 }
+
 
     
     <!-- Back to First Page Button -->
