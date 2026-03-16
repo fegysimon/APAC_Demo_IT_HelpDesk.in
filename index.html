@@ -1,195 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT HelpDesk </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-L3Vwbw6w2n5PJ/EmV6sHAyQmZI+ViWxv9vEjsZFP27pUlwMNSdU1zhYbC9G9UqV3Pq6Etsf1FwiQg5MFE4we1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT HelpDesk</title>
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-        main {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
 
-        h1, p {
-            margin: 0;
-        }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
 
-        #addToCartButton {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
 
-        #addToCartButton:hover {
-            background-color: #45a049;
-        }
+    h1,
+    p {
+      margin: 0 0 10px;
+    }
 
-        #cartInfo {
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-top: 15px;
-        }
+    #addToCartButton {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
 
-        #cartIcon {
-            font-size: 24px;
-            margin-right: 5px;
-        }
+    #addToCartButton:hover {
+      background-color: #45a049;
+    }
 
-        #cartItems {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-        }
+    .nav-links {
+      margin: 15px 0;
+    }
 
-        .cartItem {
-            margin-bottom: 5px;
-            border-bottom: 1px solid #ddd;
-            padding: 5px 0;
-        }
+    .nav-links a {
+      display: inline-block;
+      margin-right: 15px;
+      text-decoration: none;
+      color: #007bff;
+    }
 
-        #clearCartButton {
-            margin-top: 10px;
-            background-color: #e74c3c;
-            color: white;
-            padding: 8px 12px;
-            font-size: 14px;
-            border: none;
-            cursor: pointer;
-        }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
 
-        #clearCartButton:hover {
-            background-color: #c0392b;
-        }
+    #cartInfo {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 15px;
+    }
 
-        @media only screen and (max-width: 600px) {
-            main {
-                padding: 15px;
-            }
+    #cartIcon {
+      font-size: 24px;
+      margin-right: 5px;
+    }
 
-            #cartInfo {
-                margin-top: 0;
-            }
-        }
-    </style>
+    #cartItems {
+      list-style-type: none;
+      padding: 0;
+      margin: 10px 0 0;
+      text-align: left;
+    }
+
+    .cartItem {
+      margin-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+      padding: 5px 0;
+    }
+
+    #clearCartButton {
+      margin-top: 10px;
+      background-color: #e74c3c;
+      color: white;
+      padding: 8px 12px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #clearCartButton:hover {
+      background-color: #c0392b;
+    }
+
+    @media only screen and (max-width: 600px) {
+      main {
+        padding: 15px;
+      }
+
+      #cartInfo {
+        margin-top: 0;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Demo Hospital</h1>
+  </header>
 
-<header>
-    <h1>Demo Hospital </h1>
-</header>
-
-<main>
-    <!-- Your product details and other content -->
+  <main>
     <h1>Demo Hospital</h1>
     <p>Price: $999</p>
 
-    <!-- Add to Cart button -->
     <button id="addToCartButton">Add to Cart</button>
-    <a href="page2.html">Online Consultation</a>
-    <a href="page3.html">List of Doctors</a>    
-    <a href="page4.html">Outpatient SectionP</a>    
-    
-    <!-- Cart information -->
-    <div id="cartInfo">
-        <i id="cartIcon" class="fas fa-shopping-cart"></i>
-        <h2>Contact Us </h2>
-        <ul id="cartItems">
-            <!-- Cart items will be displayed here -->
-        </ul>
-        <!-- Clear Cart button -->
-        <button id="clearCartButton">Register Me!</button>
+
+    <div class="nav-links">
+      <a href="page2.html">Online Consultation</a>
+      <a href="page3.html">List of Doctors</a>
+      <a href="page4.html">Outpatient Section</a>
     </div>
-{
-  "name": "Support Center Configuration",
-  "description": "Configuration with label filtering",
-  "languages": ["en-us"],
-  "defaultLanguage": "en-us",
-  "supportCenter": {
-    "enabled": true,
-    "knowledgeBase": {
-      "id": "your-knowledge-base-id"
-    },
-    "labelFilter": {
-      "labels": [
-        {"id": "5f29e524-6f47-4a5a-b4a7-19120fcf32cf"}
-      ]
-    },
-    "customMessages": null,
-    "routerType": "Messenger",
-    "screens": {
-      "home": {
-        "enabled": true
+
+    <div id="cartInfo">
+      <i id="cartIcon" class="fas fa-shopping-cart"></i>
+      <h2>Contact Us</h2>
+      <ul id="cartItems"></ul>
+      <button id="clearCartButton">Register Me!</button>
+    </div>
+  </main>
+
+  <script>
+    // Support Center Configuration
+    const supportCenterConfig = {
+      name: "Support Center Configuration",
+      description: "Configuration with label filtering",
+      languages: ["en-us"],
+      defaultLanguage: "en-us",
+      supportCenter: {
+        enabled: true,
+        knowledgeBase: {
+          id: "your-knowledge-base-id"
+        },
+        labelFilter: {
+          labels: [
+            { id: "5f29e524-6f47-4a5a-b4a7-19120fcf32cf" }
+          ]
+        },
+        customMessages: null,
+        routerType: "Messenger",
+        screens: {
+          home: {
+            enabled: true
+          }
+        }
       }
-    }
-  }
-}
-</main>
+    };
 
-<script>
-    // Simulate adding an item to the cart
-    document.getElementById('addToCartButton').addEventListener('click', function() {
-        // You can customize this part with your actual product details
-        var productName = 'Test Product';
-        var productPrice = 999;
+    // Add item to cart
+    document.getElementById("addToCartButton").addEventListener("click", function () {
+      const productName = "Test Product";
+      const productPrice = 999;
 
-        // Create a new cart item
-        var cartItem = document.createElement('li');
-        cartItem.textContent = productName + ' - $' + productPrice.toFixed(2);
-        cartItem.className = 'cartItem';
+      const cartItem = document.createElement("li");
+      cartItem.textContent = productName + " - $" + productPrice.toFixed(2);
+      cartItem.className = "cartItem";
 
-        // Add the item to the cart
-        document.getElementById('cartItems').appendChild(cartItem);
+      document.getElementById("cartItems").appendChild(cartItem);
     });
 
     // Clear the cart
-    document.getElementById('clearCartButton').addEventListener('click', function() {
-        var cartItems = document.getElementById('cartItems');
-        while (cartItems.firstChild) {
-            cartItems.removeChild(cartItems.firstChild);
-        }
+    document.getElementById("clearCartButton").addEventListener("click", function () {
+      const cartItems = document.getElementById("cartItems");
+      while (cartItems.firstChild) {
+        cartItems.removeChild(cartItems.firstChild);
+      }
     });
-         
 
-  (function (g, e, n, es, ys) {
-    g['_genesysJs'] = e;
-    g[e] = g[e] || function () {
-      (g[e].q = g[e].q || []).push(arguments)
-    };
-    g[e].t = 1 * new Date();
-    g[e].c = es;
-    ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-  })(window, 'Genesys', 'https://apps.aps1.pure.cloud/genesys-bootstrap/genesys.min.js', {
-    environment: 'prod-aps1',
-    deploymentId: 'e35ff7ce-18d1-40aa-aa2c-061281b7d52c'
-  });
-</script>
+    // Genesys widget loader
+    (function (g, e, n, es, ys) {
+      g["_genesysJs"] = e;
+      g[e] =
+        g[e] ||
+        function () {
+          (g[e].q = g[e].q || []).push(arguments);
+        };
+      g[e].t = 1 * new Date();
+      g[e].c = es;
+      ys = document.createElement("script");
+      ys.async = true;
+      ys.src = n;
+      ys.charset = "utf-8";
+      document.head.appendChild(ys);
+    })(window, "Genesys", "https://apps.aps1.pure.cloud/genesys-bootstrap/genesys.min.js", {
+      environment: "prod-aps1",
+      deploymentId: "e35ff7ce-18d1-40aa-aa2c-061281b7d52c"
+    });
 
+    // Example: log config so it can be used later
+    console.log(supportCenterConfig);
+  </script>
 </body>
 </html>
